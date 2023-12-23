@@ -11,10 +11,10 @@ script:
   - docker run -e CI=true kais120/react-test npm test -- --coverage
 
 after_success:
-  - docket build -t kshalabayev/multi-client ./client
-  - docket build -t kshalabayev/multi-nginx ./nginx
-  - docket build -t kshalabayev/multi-server ./server
-  - docket build -t kshalabayev/multi-worker ./worker
+  - docker build -t kshalabayev/multi-client ./client
+  - docker build -t kshalabayev/multi-nginx ./nginx
+  - docker build -t kshalabayev/multi-server ./server
+  - docker build -t kshalabayev/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Push images to docker hub
