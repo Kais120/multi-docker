@@ -18,7 +18,7 @@ after_success:
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   #Push images to docker hub
-  - docker push kshalabayev/multi-client
-  - docker push kshalabayev/multi-nginx
-  - docker push kshalabayev/multi-server
-  - docker push kshalabayev/multi-worker
+  - docker push kais120/multi-client
+  - docker push kais120/multi-nginx
+  - docker push kais120/multi-server
+  - docker push kais120/multi-worker
