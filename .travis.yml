@@ -15,3 +15,10 @@ after_success:
   - docket build -t kais120/multi-nginx ./nginx
   - docket build -t kais120/multi-server ./server
   - docket build -t kais120/multi-worker ./worker
+  #Log in to the docker CLI
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  #Push images to docker hub
+  - docker push kshalabayev/multi-client
+  - docker push kshalabayev/multi-nginx
+  - docker push kshalabayev/multi-server
+  - docker push kshalabayev/multi-workerg
