@@ -1,0 +1,16 @@
+sudo: required
+language: generic
+services:
+  - docker
+
+before_install:
+  - docker build -t kais120/react-test -f ./client/Dockerfile.dev ./client
+  
+script:
+  - docker run -e CI=true kais120/react-test npm test -- --coverage
+
+after_success:
+  - docket build -t kais120/multi-client ./client
+  - docket build -t kais120/multi-nginx ./nginx
+  - docket build -t kais120/multi-server ./server
+  - docket build -t kais120/multi-worker ./worker
