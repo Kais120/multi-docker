@@ -21,4 +21,4 @@ after_success:
   - docker push kshalabayev/multi-client
   - docker push kshalabayev/multi-nginx
   - docker push kshalabayev/multi-server
-  - docker push kshalabayev/multi-workerg
+  - docker push kshalabayev/multi-worker
